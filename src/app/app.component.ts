@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   title = 'Ubicacion';
   lat = -74.0817500;
   lng = 4.6097100;
-  zoom: number = 16;
+  
 
   posts = [];
   constructor(

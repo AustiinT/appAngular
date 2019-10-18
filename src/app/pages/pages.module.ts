@@ -18,10 +18,11 @@ import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { PopoverModule } from "ngx-bootstrap/popover";
 
 import { IndexComponent } from "./index/index.component";
+import { LoginComponent } from "./examples/Login/login.component";
+import { RegisterComponent } from "./examples/register/register.component";
 import { ProfilepageComponent } from "./examples/profilepage/profilepage.component";
-import { RegisterpageComponent } from "./examples/registerpage/registerpage.component";
-import { LandingpageComponent } from "./examples/landingpage/landingpage.component"; 
-import { GalleryComponent } from "./examples/gallery/gallery.component";  
+ 
+ 
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -44,21 +45,21 @@ import { AgmCoreModule } from '@agm/core';
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCiglv8ByJ1oQbDM27IaO5Nve2fMVXI-UE'
+      apiKey: 'AIzaSyAA5PYd8kZkAq7XQ8StRgG_7M7Rq2_9_bU'
     })
   ],
   declarations: [
-    IndexComponent,
-    ProfilepageComponent,
-    RegisterpageComponent,
-    LandingpageComponent,
-    GalleryComponent
+    IndexComponent,    
+    LoginComponent,
+    RegisterComponent,
+    ProfilepageComponent
+   
   ],
   exports: [
     IndexComponent,
-    ProfilepageComponent,
-    RegisterpageComponent,
-    LandingpageComponent
+    LoginComponent,
+    RegisterComponent,
+    ProfilepageComponent
   ],
   providers: []
 })

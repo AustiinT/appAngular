@@ -22,20 +22,20 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { PagesModule } from "./pages/pages.module";
 
 import { IndexComponent } from "./pages/index/index.component";
-import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.component";
-import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
-import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
-import { MapComponent } from "./pages/examples/map/map.component";
+import { LoginComponent } from "./pages/examples/Login/login.component";
+import { RegisterComponent } from "./pages/examples/register/register.component";
+
+
 
 import { DataService } from './data.service';
 @NgModule({
   declarations: [
     AppComponent  ,  
-    MapComponent
+   
     // IndexComponent,
-    // ProfilepageComponent,
-    // RegisterpageComponent,
-    // LandingpageComponent
+    // LoginComponent,
+    // RegisterComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,
@@ -44,22 +44,20 @@ import { DataService } from './data.service';
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCiglv8ByJ1oQbDM27IaO5Nve2fMVXI-UE'
+      apiKey: 'AIzaSyAA5PYd8kZkAq7XQ8StRgG_7M7Rq2_9_bU'
     }),
     // BsDropdownModule.forRoot(),
     // ProgressbarModule.forRoot(),
     // TooltipModule.forRoot(),
     // CollapseModule.forRoot(),
     // TabsModule.forRoot(),
-    PagesModule,
+    PagesModule
     // PaginationModule.forRoot(),
     // AlertModule.forRoot(),
     // BsDatepickerModule.forRoot(),
     // CarouselModule.forRoot(),
     // ModalModule.forRoot()
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCiglv8ByJ1oQbDM27IaO5Nve2fMVXI-UE'
-    })
+    
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

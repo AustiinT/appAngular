@@ -1,15 +1,33 @@
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
+import { DataService } from "src/app/data.service";
+import { UserInterface } from "src/app/pages/examples/models/user-interface";
+
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: "app-registerpage",
-  templateUrl: "registerpage.component.html"
+  selector: "app-profilepage",
+  templateUrl: "Login.component.html"
 })
-export class RegisterpageComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
   isCollapsed = true;
   focus;
   focus1;
   focus2;
-  constructor() {}
+  constructor(private dataService: DataService) {}
+  private user: UserInterface = {
+    email: "",
+    password: ""
+  };
+  onLogin(){
+    return this.dataService
+    .loginuser(this.user.email, this.user.password)
+    .subscribe(data => {
+      console.log(data);
+    },
+    error => console.log(error)
+    );
+  }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -77,7 +95,7 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("register-page");
-
+    
     this.onMouseMove(event);
   }
   ngOnDestroy() {

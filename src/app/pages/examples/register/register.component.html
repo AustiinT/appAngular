@@ -9,9 +9,9 @@
         class="navbar-brand"
         [routerLink]="['/home']"
         placement="bottom"
-        tooltip="Designed and Coded by Creative Tim"
+        tooltip="Encuentra Tu Salon De Belleza"
       >
-        <span> BLK• </span> Design System Angular
+        <span> SPA• </span>Lo Buscamos Por Ti 
       </a>
       <button
         aria-controls="navigation-index"
@@ -34,7 +34,7 @@
     >
       <div class="navbar-collapse-header">
         <div class="row">
-          <div class="col-6 collapse-brand"><a> BLK• </a></div>
+          <div class="col-6 collapse-brand"><a> SPA• </a></div>
           <div class="col-6 collapse-close text-right">
             <button
               aria-controls="navigation-index"
@@ -90,19 +90,23 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/home']"> Back to Kit </a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="https://github.com/creativetimofficial/blk-design-system-angular/issues"
-          >
-            Have an issue?
-          </a>
-        </li>
+        <li class="nav-item p-0">
+            <a
+              class="nav-link"            
+              placement="bottom"            
+              tooltip="Iniciar Sesion"
+              [routerLink]="['/login']"
+            >
+              <i class="tim-icons icon-single-02"> </i>            
+            </a>               
+            
+          </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="wrapper">
+  
   <div class="page-header">
     <div class="page-header-image"></div>
     <div class="content">
@@ -122,7 +126,7 @@
                 <h4 class="card-title">Register</h4>
               </div>
               <div class="card-body">
-                <form class="form">
+                <form class="form" #formRegister="ngForm" (ngSubmit)="onRegister()">
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus === true }"
@@ -133,11 +137,15 @@
                       </div>
                     </div>
                     <input
+                    #celular="ngModel"
+                    name="celular"
                       class="form-control"
-                      placeholder="Full Name"
+                      placeholder="Telephone"
                       type="text"
                       (focus)="focus = true"
                       (blur)="focus = false"
+                      [(ngModel)]="user.celular"
+                      required
                     />
                   </div>
                   <div
@@ -150,11 +158,15 @@
                       </div>
                     </div>
                     <input
+                    #email="ngModel"
+                    name="email"
                       class="form-control"
                       placeholder="Email"
                       type="text"
                       (focus)="focus1 = true"
                       (blur)="focus1 = false"
+                      [(ngModel)]="user.email"
+                      required
                     />
                   </div>
                   <div
@@ -167,11 +179,15 @@
                       </div>
                     </div>
                     <input
+                    #password="ngModel"
+                    name="password"
                       class="form-control"
                       placeholder="Password"
                       type="text"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
+                      [(ngModel)]="user.password"
+                      required
                     />
                   </div>
                   <div class="form-check text-left">
@@ -182,16 +198,17 @@
                       <a href="javascript:void(0)"> terms and conditions </a> .
                     </label>
                   </div>
+                  <div class="card-footer">
+                <button
+                  class="btn btn-danger btn-round btn-lg"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <a
-                  class="btn btn-danger btn-round btn-lg"
-                  href="javascript:void(0)"
-                >
-                  Get Started
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -206,76 +223,52 @@
     </div>
   </div>
   <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"><h1 class="title">BLK•</h1></div>
-        <div class="col-md-3">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home']"> Home </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/landing']"> Landing </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/register']"> Register </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/profile']"> Profile </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://creative-tim.com/contact-us?ref=blkdsa-footer">
-                Contact Us
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"><h1 class="title">SPA•</h1></div>
+          <div class="col-md-3">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home']"> Home </a>
+              </li>            
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/register']"> Register </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Login']"> Login </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            
+          </div>
+          <div class="col-md-3">
+            <h3 class="title">Follow us:</h3>
+            <div class="btn-wrapper profile">
+              <a
+                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+                href="https://twitter.com/creativetim"
+                target="_blank"
+              >
+                <i class="fab fa-twitter"> </i>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://creative-tim.com/about-us?ref=blkdsa-footer">
-                About Us
+              <a
+                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+                href="https://www.facebook.com/creativetim"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-square"> </i>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://creative-tim.com/blog?ref=blkdsa-footer">
-                Blog
+              <a
+                class="btn btn-icon btn-neutral btn-round btn-simple"
+                href="https://dribbble.com/creativetim"
+                target="_blank"
+              >
+                <i class="fab fa-dribbble"> </i>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://opensource.org/licenses/MIT">
-                License
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h3 class="title">Follow us:</h3>
-          <div class="btn-wrapper profile">
-            <a
-              class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
-              href="https://twitter.com/creativetim"
-              target="_blank"
-            >
-              <i class="fab fa-twitter"> </i>
-            </a>
-            <a
-              class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
-              href="https://www.facebook.com/creativetim"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-square"> </i>
-            </a>
-            <a
-              class="btn btn-icon btn-neutral btn-round btn-simple"
-              href="https://dribbble.com/creativetim"
-              target="_blank"
-            >
-              <i class="fab fa-dribbble"> </i>
-            </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 </div>
